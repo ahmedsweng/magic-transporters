@@ -4,7 +4,8 @@
   "description": "Welcome to Magic Transporters, the future of moving things easily.",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon",
+    "dev": "nodemon",
+    "start": "node dist/index.js",
     "build": "tsc"
   },
   "author": "ahmed naoum",
