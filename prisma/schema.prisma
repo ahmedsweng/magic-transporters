@@ -9,6 +9,39 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mysql"
   url      = env("DATABASE_URL")
+}
+
+model MagicMover {
+  id          Int          @id @default(autoincrement())
+  name        String
+  weightLimit Float
+  energy      Float
+  questState  QuestState   @default(RESTING)
+  missions    MissionLog[]
+}
+
+model MagicItem {
+  id           Int         @id @default(autoincrement())
+  name         String
+  weight       Float
+  MissionLog   MissionLog? @relation(fields: [missionLogId], references: [id])
+  missionLogId Int?
+}
+
+model MissionLog {
+  id           Int         @id @default(autoincrement())
+  magicMoverId Int
+  magicMover   MagicMover  @relation(fields: [magicMoverId], references: [id])
+  items        MagicItem[]
+  state        QuestState
+  createdAt    DateTime    @default(now())
+}
+
+enum QuestState {
+  RESTING
+  LOADING
+  ON_A_MISSION
+  DONE
 }

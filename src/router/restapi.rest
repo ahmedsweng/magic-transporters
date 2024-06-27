@@ -1,0 +1,47 @@
+###* Add a new Magic Mover
+POST http://localhost:6000/api/v1/movers
+Content-Type: application/json
+
+{
+  "name": "Mover Three",
+  "weightLimit": 100,
+  "energy": 50
+}
+
+###* Get all Magic Movers
+GET http://localhost:6000/api/v1/movers
+
+###* Add a new Magic Item
+POST http://localhost:6000/api/v1/items
+Content-Type: application/json
+
+{
+  "name": "Item Four",
+  "weight": 20
+}
+
+###* Get all Magic Items
+GET http://localhost:6000/api/v1/items
+
+###* Load a Magic Mover with items
+POST http://localhost:6000/api/v1/load-movers/1
+Content-Type: application/json
+
+{
+  "itemIds": [1,2,3]
+}
+
+###* Start a Mission
+POST http://localhost:6000/api/v1/start-mission/2
+
+###* End a Mission
+POST http://localhost:6000/api/v1/end-mission/2
+
+###* Get the list of top movers
+GET http://localhost:6000/api/v1/top-movers
+
+###* Delete a Magic Mover
+DELETE http://localhost:6000/api/v1/movers/MOVER_ID
+
+###* Delete a Magic Item
+DELETE http://localhost:6000/api/v1/items/ITEM_ID
