@@ -34,6 +34,13 @@ export const loadMover = async (req: Request, res: Response) => {
     });
     if (!mover) return res.status(404).json({ error: "Mover not found" });
 
+    if (mover.questState == "ON_A_MISSION")
+      return res
+        .status(400)
+        .json({
+          error: "The mover is already on a mission, when done load again.",
+        });
+
     const items = await prisma.magicItem.findMany({
       where: { id: { in: itemIds } },
     });

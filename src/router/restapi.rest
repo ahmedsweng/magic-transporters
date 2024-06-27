@@ -32,10 +32,10 @@ Content-Type: application/json
 }
 
 ###* Start a Mission
-POST http://localhost:6000/api/v1/start-mission/2
+POST http://localhost:6000/api/v1/start-mission/1
 
 ###* End a Mission
-POST http://localhost:6000/api/v1/end-mission/2
+POST http://localhost:6000/api/v1/end-mission/1
 
 ###* Get the list of top movers
 GET http://localhost:6000/api/v1/top-movers
